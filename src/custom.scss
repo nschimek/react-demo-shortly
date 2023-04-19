@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+$font-family-base: 'Poppins', sans-serif;
+$font-weight-normal: 500;
+
+$primary: hsl(180, 66%, 49%);
+$secondary: hsl(257, 27%, 26%); // dark purple
+$danger: hsl(0, 87%, 67%);
+$info: hsl(0, 0%, 75%); // gray
+$light: rgb(240, 241, 246); // light gray
+$dark: hsl(260, 8%, 14%); // very dark purple
+$light-purple: rgb(84, 74, 109);
+
+$grid-breakpoints: (
+  xs: 0,
+  // given the size of the page images, breaking for sm here seems to work best
+  sm: 767px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$container-max-widths: (
+  sm: 375px,
+  md: 720px,
+  lg: 960px,
+  xl: 1110px,
+  xxl: 1440px,
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+html {
+  font-size: 18px !important;
+}
+
+.display-2 {
+  font-weight: bold;
+}
+
+.adv-stats {
+  max-width: 25rem;
+}
+
+.card {
+  min-height: 14rem !important;
+}
+
+.card-row {
+  position: relative;
+}
+
+.floating-icon {
+  position: absolute;
+  top: -1.75rem;
+}
+
+a.nav-link-dt:hover {
+  color: $black !important;
+}
+
+a.footer-nav-link {
+  text-decoration: none;
+}
+
+a.footer-nav-link:hover {
+  color: $primary !important;
+  text-decoration: none;
+}
+
+/* This produces a background which is half one color and half another (horizontal orientation). */
+.bg-light-half {
+  background-image: linear-gradient(to bottom, #fff 50%, $light 50%);
+  background-image: -o-linear-gradient(bottom, #fff, $light 50%);
+  background-image: -moz-linear-gradient(bottom, #fff, $light 50%);
+  background-image: -webkit-linear-gradient(bottom, #fff, $light 50%);
+  background-image: -ms-linear-gradient(bottom, #fff, $light 50%);
+}
+
+.error-text {
+  position: absolute;
+  font-style: italic;
+}
+
+.menu-divider {
+  border-bottom: 1px solid $light-purple;
+}
+
+a.short-link {
+  text-decoration: none;
+}
+
+a.short-link:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) {
+  .shorten-background {
+    background-image: url(images/bg-shorten-desktop.svg);
+    background-repeat: round;
+  }
+  .container {
+    max-width: 1440px !important;
+  }
+  .max-shorten {
+    max-width: 1110px !important;
+  }
+  .stagger-1 {
+    margin-top: 2.5rem !important;
+  }
+  .stagger-2 {
+    margin-top: 5rem !important;
+  }
+  /* This draws green line between the Feature Boxes (horizontal on desktop) */
+  .card-row:before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 1rem;
+    border-top: 0.75rem solid $primary;
+    width: 90%;
+    transform: translateY(-40%);
+  }
+  .boost-background {
+    height: 250px;
+    background-image: url(images/bg-boost-desktop.svg);
+    background-repeat: round;
+  }
+}
+
+// we want to use some of the mobile layout under 767, but the desktop images still look best until <376.
+@media only screen and (max-width: 767px) {
+  .shorten-background {
+    background-image: url(images/bg-shorten-desktop.svg);
+    background-repeat: round;
+  }
+  .container {
+    max-width: 375px !important;
+  }
+  .stagger-1 {
+    margin-top: 3.5rem !important;
+  }
+  .stagger-2 {
+    margin-top: 3.5rem !important;
+  }
+  /* This draws green line between the Feature Boxes (vertical on mobile) */
+  .card-row:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    border-left: 0.75rem solid hsl(180, 66%, 49%);
+    height: 90%;
+    transform: translateX(-50%);
+  }
+  .boost-background {
+    height: 300px;
+    background-image: url(images/bg-boost-desktop.svg);
+    background-repeat: round;
+  }
+  .link-border {
+    border-bottom: 1px solid rgb(240, 241, 246);
+  }
+}
+
+// the mobile background images only work with very small viewports
+@media screen and (max-width: 376px) {
+  .shorten-background {
+    background-image: url(images/bg-shorten-mobile.svg);
+    background-repeat: round;
+  }
+  .boost-background {
+    height: 300px;
+    background-image: url(images/bg-boost-mobile.svg);
+    background-repeat: round;
+  }
+}
